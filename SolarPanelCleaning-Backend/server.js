@@ -12,7 +12,7 @@ app.use(cors());
 
 // --- 2. DATABASE CONNECTION ---
 // Reusing the connection string. Data will be stored in a new collection.
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI = process.env.MONGO_URI ;
 
 mongoose.connect(MONGO_URI)
     .then(() => console.log('MongoDB connected successfully.'))
@@ -24,6 +24,7 @@ const solarPanelSchema = new mongoose.Schema({
     voltage: { type: Number, default: 0 },
     soc: { type: Number, default: 0 },
     temperature: { type: Number, default: 0 },
+    dustLevel: { type: Number, default: 0 },
     dustStatus: {
         status: { type: String, default: 'Clean' }, // Renamed from 'type' to avoid conflict
         dustLevel: { type: Number, default: 0 },
